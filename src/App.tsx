@@ -9,6 +9,8 @@ import NewRequest from './pages/NewRequest'
 import Projects from './pages/Projects'
 import Teams from './pages/Teams'
 import Almoxarifado from './pages/Almoxarifado'
+import Veiculos from './pages/Veiculos'
+import CargaDescarga from './pages/CargaDescarga'
 import Historico from './pages/Historico'
 
 export default function App() {
@@ -28,6 +30,8 @@ export default function App() {
               <Route path="obras" element={<Projects />} />
               <Route path="equipes" element={<Teams />} />
               <Route path="almoxarifado" element={<Almoxarifado />} />
+              <Route path="veiculos" element={<Veiculos />} />
+              <Route path="carga-descarga" element={<CargaDescarga />} />
               <Route path="historico" element={<Historico />} />
             </Route>
           </Routes>

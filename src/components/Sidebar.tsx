@@ -11,6 +11,8 @@ import {
   PanelLeftClose,
   PanelLeftOpen,
   Package,
+  Car,
+  Truck,
   History,
 } from 'lucide-react'
 
@@ -21,6 +23,8 @@ const navigation = [
   { name: 'Obras', description: 'Projetos ativos', to: '/app/obras', icon: Building2 },
   { name: 'Equipes', description: 'Grupos de trabalho', to: '/app/equipes', icon: Users },
   { name: 'Almoxarifado', description: 'Ordens de compra', to: '/app/almoxarifado', icon: Package },
+  { name: 'Veículos', description: 'Frota da empresa', to: '/app/veiculos', icon: Car },
+  { name: 'Carga e Descarga', description: 'Logística de obras', to: '/app/carga-descarga', icon: Truck },
   { name: 'Histórico', description: 'Linha do tempo', to: '/app/historico', icon: History },
 ]
 

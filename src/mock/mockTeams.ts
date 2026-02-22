@@ -7,6 +7,14 @@ export const mockTeams: Team[] = [
     color: '#3B82F6',
     members: 4,
     projectId: 'proj-001',
+    leader: 'João Silva',
+    specialty: 'Corte e Usinagem',
+    memberList: [
+      { id: 'mem-001', name: 'João Silva', role: 'Líder / Operador de Serra', phone: '(11) 98765-4321' },
+      { id: 'mem-002', name: 'Paulo Henrique', role: 'Operador de CNC', phone: '(11) 98765-4322' },
+      { id: 'mem-003', name: 'Marcos Vinícius', role: 'Auxiliar de Corte', phone: '(11) 98765-4323' },
+      { id: 'mem-004', name: 'Diego Souza', role: 'Ajudante Geral', phone: '(11) 98765-4324' },
+    ],
   },
   {
     id: 'team-002',
@@ -14,6 +22,16 @@ export const mockTeams: Team[] = [
     color: '#8B5CF6',
     members: 6,
     projectId: 'proj-001',
+    leader: 'Roberto Lima',
+    specialty: 'Montagem e Instalação',
+    memberList: [
+      { id: 'mem-005', name: 'Roberto Lima', role: 'Líder / Montador Sênior', phone: '(11) 97654-3210' },
+      { id: 'mem-006', name: 'André Oliveira', role: 'Montador', phone: '(11) 97654-3211' },
+      { id: 'mem-007', name: 'Felipe Santos', role: 'Montador', phone: '(11) 97654-3212' },
+      { id: 'mem-008', name: 'Lucas Ferreira', role: 'Instalador Elétrico', phone: '(11) 97654-3213' },
+      { id: 'mem-009', name: 'Rafael Costa', role: 'Auxiliar de Montagem', phone: '(11) 97654-3214' },
+      { id: 'mem-010', name: 'Thiago Almeida', role: 'Ajudante Geral', phone: '(11) 97654-3215' },
+    ],
   },
   {
     id: 'team-003',
@@ -21,6 +39,15 @@ export const mockTeams: Team[] = [
     color: '#10B981',
     members: 5,
     projectId: 'proj-002',
+    leader: 'Ana Rodrigues',
+    specialty: 'Acabamento e Pintura',
+    memberList: [
+      { id: 'mem-011', name: 'Ana Rodrigues', role: 'Líder / Especialista Acabamento', phone: '(41) 99876-5432' },
+      { id: 'mem-012', name: 'Camila Pereira', role: 'Pintora', phone: '(41) 99876-5433' },
+      { id: 'mem-013', name: 'Juliana Martins', role: 'Lixadora', phone: '(41) 99876-5434' },
+      { id: 'mem-014', name: 'Bruno Nascimento', role: 'Verniz e Seladora', phone: '(41) 99876-5435' },
+      { id: 'mem-015', name: 'Gustavo Ribeiro', role: 'Auxiliar de Acabamento', phone: '(41) 99876-5436' },
+    ],
   },
   {
     id: 'team-004',
@@ -28,6 +55,14 @@ export const mockTeams: Team[] = [
     color: '#F59E0B',
     members: 4,
     projectId: 'proj-003',
+    leader: 'Pedro Oliveira',
+    specialty: 'Marcenaria Geral',
+    memberList: [
+      { id: 'mem-016', name: 'Pedro Oliveira', role: 'Líder / Marceneiro Sênior', phone: '(13) 98765-1234' },
+      { id: 'mem-017', name: 'Renato Alves', role: 'Marceneiro', phone: '(13) 98765-1235' },
+      { id: 'mem-018', name: 'Sérgio Lima', role: 'Auxiliar de Marcenaria', phone: '(13) 98765-1236' },
+      { id: 'mem-019', name: 'Wagner Santos', role: 'Ajudante Geral', phone: '(13) 98765-1237' },
+    ],
   },
   {
     id: 'team-005',
@@ -35,5 +70,12 @@ export const mockTeams: Team[] = [
     color: '#EF4444',
     members: 3,
     projectId: 'proj-002',
+    leader: 'Maria Santos',
+    specialty: 'Instalação de Ferragens',
+    memberList: [
+      { id: 'mem-020', name: 'Maria Santos', role: 'Líder / Instaladora', phone: '(41) 98765-9876' },
+      { id: 'mem-021', name: 'Vinícius Costa', role: 'Instalador de Ferragens', phone: '(41) 98765-9877' },
+      { id: 'mem-022', name: 'Leonardo Dias', role: 'Auxiliar de Instalação', phone: '(41) 98765-9878' },
+    ],
   },
 ]
