@@ -38,27 +38,27 @@ export default function HowItWorksSection() {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
 
   return (
-    <section id="how-it-works" className="py-32 bg-gray-50/50 dark:bg-dark-surface/50 relative overflow-hidden">
+    <section id="how-it-works" className="py-16 sm:py-24 lg:py-32 bg-gray-50/50 dark:bg-dark-surface/50 relative overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-dark-border to-transparent" />
       <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-dark-border to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200/50 dark:border-emerald-500/20 rounded-full mb-6">
-            <Settings className="w-4 h-4 text-emerald-500" />
-            <span className="text-sm font-medium text-emerald-700 dark:text-emerald-400">Simples e eficiente</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200/50 dark:border-emerald-500/20 rounded-full mb-5 sm:mb-6">
+            <Settings className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-500" />
+            <span className="text-xs sm:text-sm font-medium text-emerald-700 dark:text-emerald-400">Simples e eficiente</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
             Como funciona?
           </h2>
-          <p className="mt-6 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-2 sm:px-0">
             Em 4 passos simples, sua marcenaria sai do caos e entra na era digital.
           </p>
         </motion.div>
@@ -75,7 +75,7 @@ export default function HowItWorksSection() {
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-8">
             {steps.map((step, index) => (
               <motion.div
                 key={step.number}
@@ -88,7 +88,7 @@ export default function HowItWorksSection() {
                 }}
                 className="relative group"
               >
-                <div className="bg-white dark:bg-dark-card rounded-2xl border border-gray-100 dark:border-dark-border p-8 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-500 h-full">
+                <div className="bg-white dark:bg-dark-card rounded-2xl border border-gray-100 dark:border-dark-border p-6 sm:p-8 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-500 h-full">
                   {/* Step number */}
                   <div className="relative mx-auto mb-6">
                     <div className={`w-16 h-16 mx-auto bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500`}>

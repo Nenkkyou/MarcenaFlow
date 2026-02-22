@@ -1,4 +1,5 @@
 import { MapPin, User, Building2, Briefcase } from 'lucide-react'
+import { useOutletContext } from 'react-router-dom'
 import Header from '../components/Header'
 import { mockProjects } from '../mock/mockProjects'
 import { useApp } from '../context/AppContext'
@@ -10,13 +11,14 @@ const statusLabels: Record<string, { label: string; emoji: string; color: string
 }
 
 export default function Projects() {
+  const { onOpenSidebar } = useOutletContext<{ onOpenSidebar: () => void }>()
   const { requests } = useApp()
 
   return (
     <>
-      <Header title="Obras" subtitle="Visualize o andamento de cada projeto" />
+      <Header title="Obras" subtitle="Visualize o andamento de cada projeto" onOpenSidebar={onOpenSidebar} />
 
-      <main className="p-8">
+      <main className="p-4 sm:p-8">
         {/* Page header */}
         <div className="flex items-center gap-3 mb-8">
           <div className="w-10 h-10 bg-blue-50 dark:bg-blue-500/10 rounded-xl flex items-center justify-center">

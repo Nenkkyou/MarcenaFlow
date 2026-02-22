@@ -34,7 +34,7 @@ export default function TestimonialsSection() {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
 
   return (
-    <section id="testimonials" className="py-32 relative overflow-hidden">
+    <section id="testimonials" className="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-dark-border to-transparent" />
 
       {/* Background glow */}
@@ -42,30 +42,30 @@ export default function TestimonialsSection() {
         <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-violet-500/[0.04] dark:bg-violet-500/[0.02] rounded-full blur-[100px]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-amber-50 dark:bg-amber-500/10 border border-amber-200/50 dark:border-amber-500/20 rounded-full mb-6">
-            <Star className="w-4 h-4 text-amber-500" />
-            <span className="text-sm font-medium text-amber-700 dark:text-amber-400">+200 marcenarias satisfeitas</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 bg-amber-50 dark:bg-amber-500/10 border border-amber-200/50 dark:border-amber-500/20 rounded-full mb-5 sm:mb-6">
+            <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500" />
+            <span className="text-xs sm:text-sm font-medium text-amber-700 dark:text-amber-400">+200 marcenarias satisfeitas</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
             Quem usa,
             <span className="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent"> recomenda</span>
           </h2>
-          <p className="mt-6 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-2 sm:px-0">
             Veja o que nossos clientes dizem sobre a transformação na gestão da marcenaria.
           </p>
         </motion.div>
 
         {/* Testimonial cards */}
-        <div ref={sectionRef} className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div ref={sectionRef} className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           {testimonials.map((t, index) => (
             <motion.div
               key={t.name}
@@ -76,7 +76,7 @@ export default function TestimonialsSection() {
                 delay: 0.1 + index * 0.15,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className="group relative bg-white dark:bg-dark-card rounded-2xl border border-gray-100 dark:border-dark-border p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
+              className="group relative bg-white dark:bg-dark-card rounded-2xl border border-gray-100 dark:border-dark-border p-6 sm:p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-500"
             >
               {/* Quote icon */}
               <div className="absolute top-6 right-6">

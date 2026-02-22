@@ -87,34 +87,34 @@ export default function FeaturesSection() {
   const statsInView = useInView(statsRef, { once: true, margin: '-50px' })
 
   return (
-    <section id="features" className="py-32 relative overflow-hidden">
+    <section id="features" className="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-dark-border to-transparent" />
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-blue-500/[0.03] dark:bg-blue-500/[0.02] rounded-full blur-[100px]" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* Section header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-violet-50 dark:bg-violet-500/10 border border-violet-200/50 dark:border-violet-500/20 rounded-full mb-6">
-            <Zap className="w-4 h-4 text-violet-500" />
-            <span className="text-sm font-medium text-violet-700 dark:text-violet-400">Tudo que você precisa</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 bg-violet-50 dark:bg-violet-500/10 border border-violet-200/50 dark:border-violet-500/20 rounded-full mb-5 sm:mb-6">
+            <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-violet-500" />
+            <span className="text-xs sm:text-sm font-medium text-violet-700 dark:text-violet-400">Tudo que você precisa</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
             Funcionalidades que
             <br />
             <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
               transformam seu negócio
             </span>
           </h2>
-          <p className="mt-6 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-2 sm:px-0">
             Cada recurso foi pensado para simplificar a rotina da sua marcenaria
             e eliminar o caos de planilhas e papéis.
           </p>
@@ -126,19 +126,19 @@ export default function FeaturesSection() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
         >
           {features.map((feature) => (
             <motion.div
               key={feature.title}
               variants={itemVariants}
-              className="group relative bg-white dark:bg-dark-card rounded-2xl border border-gray-100 dark:border-dark-border p-8 hover:border-gray-200 dark:hover:border-gray-600 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
+              className="group relative bg-white dark:bg-dark-card rounded-2xl border border-gray-100 dark:border-dark-border p-6 sm:p-8 hover:border-gray-200 dark:hover:border-gray-600 transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
             >
               {/* Hover glow */}
               <div className={`absolute inset-0 bg-gradient-to-br ${feature.color} opacity-0 group-hover:opacity-[0.03] rounded-2xl transition-opacity duration-500`} />
 
-              <div className={`relative w-14 h-14 bg-gradient-to-br ${feature.color} rounded-2xl flex items-center justify-center shadow-lg ${feature.shadowColor} mb-6 group-hover:scale-110 transition-transform duration-500`}>
-                <feature.icon className="w-7 h-7 text-white" />
+              <div className={`relative w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-br ${feature.color} rounded-xl sm:rounded-2xl flex items-center justify-center shadow-lg ${feature.shadowColor} mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-500`}>
+                <feature.icon className="w-6 h-6 sm:w-7 sm:h-7 text-white" />
               </div>
               <h3 className="relative text-lg font-bold text-gray-900 dark:text-white mb-3">
                 {feature.title}
@@ -156,7 +156,7 @@ export default function FeaturesSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={statsInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mt-24 grid grid-cols-1 sm:grid-cols-3 gap-6"
+          className="mt-12 sm:mt-24 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6"
         >
           {highlights.map((stat) => (
             <div

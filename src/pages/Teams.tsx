@@ -1,16 +1,18 @@
 import { Users as UsersIcon, UserCircle, HardHat } from 'lucide-react'
+import { useOutletContext } from 'react-router-dom'
 import Header from '../components/Header'
 import { mockTeams } from '../mock/mockTeams'
 import { useApp } from '../context/AppContext'
 
 export default function Teams() {
+  const { onOpenSidebar } = useOutletContext<{ onOpenSidebar: () => void }>()
   const { requests } = useApp()
 
   return (
     <>
-      <Header title="Equipes" subtitle="Veja a carga de trabalho de cada equipe" />
+      <Header title="Equipes" subtitle="Veja a carga de trabalho de cada equipe" onOpenSidebar={onOpenSidebar} />
 
-      <main className="p-8">
+      <main className="p-4 sm:p-8">
         {/* Page header */}
         <div className="flex items-center gap-3 mb-8">
           <div className="w-10 h-10 bg-violet-50 dark:bg-violet-500/10 rounded-xl flex items-center justify-center">

@@ -20,6 +20,16 @@ export default function LandingNavbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [mobileOpen])
+
   const scrollTo = (href: string) => {
     setMobileOpen(false)
     const el = document.querySelector(href)
@@ -38,14 +48,14 @@ export default function LandingNavbar() {
             : 'bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex items-center justify-between h-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25 group-hover:shadow-blue-500/40 transition-shadow">
-                <Hammer className="w-5 h-5 text-white" />
+            <Link to="/" className="flex items-center gap-2.5 sm:gap-3 group">
+              <div className="w-9 h-9 sm:w-10 sm:h-10 bg-gradient-to-br from-blue-500 to-violet-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/25 group-hover:shadow-blue-500/40 transition-shadow">
+                <Hammer className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent">
+              <span className="text-lg sm:text-xl font-bold bg-gradient-to-r from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 bg-clip-text text-transparent">
                 MarcenaFlow
               </span>
             </Link>
@@ -82,7 +92,8 @@ export default function LandingNavbar() {
             {/* Mobile hamburger */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden p-2 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-hover rounded-lg"
+              className="md:hidden p-2.5 -mr-1 text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-hover rounded-xl active:scale-95 transition-all"
+              aria-label={mobileOpen ? 'Fechar menu' : 'Abrir menu'}
             >
               {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
@@ -90,33 +101,55 @@ export default function LandingNavbar() {
         </div>
       </motion.nav>
 
-      {/* Mobile menu */}
+      {/* Mobile menu - fullscreen overlay */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            className="fixed inset-x-0 top-20 z-40 bg-white/95 dark:bg-dark-bg/95 backdrop-blur-xl border-b border-gray-200 dark:border-dark-border p-6 md:hidden"
-          >
-            <div className="flex flex-col gap-2">
-              {navLinks.map(link => (
-                <button
-                  key={link.href}
-                  onClick={() => scrollTo(link.href)}
-                  className="px-4 py-3 text-left text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-hover rounded-xl transition-colors"
-                >
-                  {link.label}
-                </button>
-              ))}
-              <Link
-                to="/app"
-                className="mt-4 w-full text-center px-5 py-3 text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl shadow-lg"
-              >
-                Começar Grátis
-              </Link>
-            </div>
-          </motion.div>
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileOpen(false)}
+              className="fixed inset-0 z-40 bg-black/20 backdrop-blur-sm md:hidden"
+            />
+            {/* Menu panel */}
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.25, ease: 'easeOut' }}
+              className="fixed inset-x-0 top-16 sm:top-20 z-50 bg-white/98 dark:bg-dark-bg/98 backdrop-blur-2xl border-b border-gray-200 dark:border-dark-border md:hidden"
+            >
+              <div className="flex flex-col gap-1 p-4 pb-6 max-h-[calc(100dvh-4rem)] overflow-y-auto">
+                {navLinks.map(link => (
+                  <button
+                    key={link.href}
+                    onClick={() => scrollTo(link.href)}
+                    className="px-4 py-3.5 text-left text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-dark-hover rounded-xl transition-colors active:bg-gray-100 dark:active:bg-dark-surface"
+                  >
+                    {link.label}
+                  </button>
+                ))}
+                <div className="mt-3 pt-3 border-t border-gray-100 dark:border-dark-border flex flex-col gap-2">
+                  <Link
+                    to="/app"
+                    onClick={() => setMobileOpen(false)}
+                    className="w-full text-center px-5 py-3.5 text-base font-medium text-gray-700 dark:text-gray-300 rounded-xl border border-gray-200 dark:border-dark-border hover:bg-gray-50 dark:hover:bg-dark-hover active:scale-[0.98] transition-all"
+                  >
+                    Entrar
+                  </Link>
+                  <Link
+                    to="/app"
+                    onClick={() => setMobileOpen(false)}
+                    className="w-full text-center px-5 py-3.5 text-base font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl shadow-lg active:scale-[0.98] transition-all"
+                  >
+                    Começar Grátis
+                  </Link>
+                </div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </>

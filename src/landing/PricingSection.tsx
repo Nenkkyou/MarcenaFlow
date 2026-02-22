@@ -63,37 +63,37 @@ export default function PricingSection() {
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' })
 
   return (
-    <section id="pricing" className="py-32 bg-gray-50/50 dark:bg-dark-surface/50 relative overflow-hidden">
+    <section id="pricing" className="py-16 sm:py-24 lg:py-32 bg-gray-50/50 dark:bg-dark-surface/50 relative overflow-hidden">
       <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-dark-border to-transparent" />
       <div className="absolute bottom-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gray-200 dark:via-dark-border to-transparent" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-50 dark:bg-blue-500/10 border border-blue-200/50 dark:border-blue-500/20 rounded-full mb-6">
-            <Crown className="w-4 h-4 text-blue-500" />
-            <span className="text-sm font-medium text-blue-700 dark:text-blue-400">Preços transparentes</span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 bg-blue-50 dark:bg-blue-500/10 border border-blue-200/50 dark:border-blue-500/20 rounded-full mb-5 sm:mb-6">
+            <Crown className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-500" />
+            <span className="text-xs sm:text-sm font-medium text-blue-700 dark:text-blue-400">Preços transparentes</span>
           </div>
-          <h2 className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
             Planos que cabem
             <br />
             <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
               no seu bolso
             </span>
           </h2>
-          <p className="mt-6 text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+          <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-2 sm:px-0">
             Comece grátis por 14 dias. Sem cartão de crédito. Cancele quando quiser.
           </p>
         </motion.div>
 
         {/* Pricing cards */}
-        <div ref={sectionRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+        <div ref={sectionRef} className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8 items-start">
           {plans.map((plan, index) => (
             <motion.div
               key={plan.name}

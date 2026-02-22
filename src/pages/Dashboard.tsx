@@ -1,5 +1,5 @@
 import { ArrowRight, Clock, AlertTriangle, TrendingUp, Zap } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useOutletContext } from 'react-router-dom'
 import Header from '../components/Header'
 import DashboardCards from '../components/DashboardCards'
 import RequestCard from '../components/RequestCard'
@@ -9,6 +9,7 @@ import { statusConfig } from '../utils/helpers'
 import type { Status } from '../types'
 
 export default function Dashboard() {
+  const { onOpenSidebar } = useOutletContext<{ onOpenSidebar: () => void }>()
   const { requests } = useApp()
 
   const recentRequests = [...requests]
@@ -31,9 +32,9 @@ export default function Dashboard() {
 
   return (
     <>
-      <Header title="Painel Geral" subtitle="Acompanhe tudo em um só lugar" />
+      <Header title="Painel Geral" subtitle="Acompanhe tudo em um só lugar" onOpenSidebar={onOpenSidebar} />
 
-      <main className="p-8 space-y-8">
+      <main className="p-4 sm:p-8 space-y-6 sm:space-y-8">
         {/* Welcome banner */}
         <div className="card bg-gradient-to-r from-navy-800 to-navy-700 dark:from-dark-card dark:to-dark-surface border-0 p-6 relative overflow-hidden">
           <div className="relative z-10">

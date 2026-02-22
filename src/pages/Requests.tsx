@@ -1,17 +1,18 @@
 import { PlusCircle, ClipboardList } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useOutletContext } from 'react-router-dom'
 import Header from '../components/Header'
 import RequestList from '../components/RequestList'
 import { useApp } from '../context/AppContext'
 
 export default function Requests() {
+  const { onOpenSidebar } = useOutletContext<{ onOpenSidebar: () => void }>()
   const { requests } = useApp()
 
   return (
     <>
-      <Header title="Solicitações" subtitle="Todos os pedidos das obras em um só lugar" />
+      <Header title="Solicitações" subtitle="Todos os pedidos das obras em um só lugar" onOpenSidebar={onOpenSidebar} />
 
-      <main className="p-8">
+      <main className="p-4 sm:p-8">
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 bg-blue-50 dark:bg-blue-500/10 rounded-xl flex items-center justify-center">

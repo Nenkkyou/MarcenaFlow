@@ -4,8 +4,8 @@ import { ArrowRight, Rocket } from 'lucide-react'
 
 export default function CTASection() {
   return (
-    <section className="py-32 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="py-16 sm:py-24 lg:py-32 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -14,7 +14,7 @@ export default function CTASection() {
           className="relative"
         >
           {/* Background card */}
-          <div className="relative overflow-hidden bg-gradient-to-br from-navy-800 via-navy-900 to-navy-950 rounded-3xl p-12 sm:p-16 lg:p-20">
+          <div className="relative overflow-hidden bg-gradient-to-br from-navy-800 via-navy-900 to-navy-950 rounded-2xl sm:rounded-3xl p-8 sm:p-16 lg:p-20">
             {/* Decorative elements */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4" />
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-violet-500/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/4" />
@@ -40,12 +40,12 @@ export default function CTASection() {
                 <Rocket className="w-8 h-8 text-white" />
               </motion.div>
 
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
                 Pronto para transformar
                 <br />
                 sua marcenaria?
               </h2>
-              <p className="mt-6 text-lg text-blue-100/70 max-w-xl mx-auto">
+              <p className="mt-4 sm:mt-6 text-base sm:text-lg text-blue-100/70 max-w-xl mx-auto">
                 Junte-se a mais de 200 marcenarias que já revolucionaram sua gestão.
                 Comece grátis, sem compromisso.
               </p>
@@ -53,7 +53,7 @@ export default function CTASection() {
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
                   to="/app"
-                  className="group inline-flex items-center gap-2.5 px-8 py-4 text-base font-semibold text-navy-900 bg-white rounded-2xl hover:bg-gray-100 shadow-2xl shadow-black/20 transition-all duration-300 hover:-translate-y-0.5"
+                  className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 text-base font-semibold text-navy-900 bg-white rounded-2xl hover:bg-gray-100 shadow-2xl shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98]"
                 >
                   Começar Agora — É Grátis
                   <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
