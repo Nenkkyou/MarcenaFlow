@@ -11,6 +11,7 @@ import {
   PanelLeftClose,
   PanelLeftOpen,
   Package,
+  History,
 } from 'lucide-react'
 
 const navigation = [
@@ -20,6 +21,7 @@ const navigation = [
   { name: 'Obras', description: 'Projetos ativos', to: '/app/obras', icon: Building2 },
   { name: 'Equipes', description: 'Grupos de trabalho', to: '/app/equipes', icon: Users },
   { name: 'Almoxarifado', description: 'Ordens de compra', to: '/app/almoxarifado', icon: Package },
+  { name: 'Histórico', description: 'Linha do tempo', to: '/app/historico', icon: History },
 ]
 
 interface SidebarProps {

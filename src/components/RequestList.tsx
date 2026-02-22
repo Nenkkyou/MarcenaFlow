@@ -63,7 +63,7 @@ export default function RequestList({ requests }: RequestListProps) {
           </div>
 
           {/* Results count */}
-          <div className="flex items-center gap-2 px-4 py-3 bg-gray-50 dark:bg-dark-surface rounded-xl self-end">
+          <div className="flex items-center gap-2 px-4 py-3 bg-gray-50 dark:bg-dark-surface rounded-xl w-full sm:w-auto">
             <Search className="w-4 h-4 text-gray-400" />
             <span className="text-sm font-semibold text-gray-600 dark:text-gray-300">
               {filtered.length} resultado{filtered.length !== 1 ? 's' : ''}

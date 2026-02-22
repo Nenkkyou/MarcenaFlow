@@ -323,7 +323,7 @@ export default function RequestForm() {
             onDragOver={(e) => { e.preventDefault(); setDragActive(true) }}
             onDragLeave={() => setDragActive(false)}
             onDrop={handleDrop}
-            className={`border-2 border-dashed rounded-2xl p-10 text-center transition-all duration-200 ${
+            className={`border-2 border-dashed rounded-2xl p-6 sm:p-10 text-center transition-all duration-200 ${
               dragActive
                 ? 'border-blue-400 bg-blue-50/50 dark:bg-blue-500/5'
                 : 'border-gray-200 dark:border-dark-border hover:border-gray-300 dark:hover:border-gray-600 hover:bg-gray-50/50 dark:hover:bg-dark-surface/50'
@@ -363,7 +363,7 @@ export default function RequestForm() {
                     <button
                       type="button"
                       onClick={() => removeAttachment(att.id)}
-                      className="p-1.5 text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg opacity-0 group-hover:opacity-100 transition-all"
+                      className="p-2.5 text-gray-400 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all"
                     >
                       <X className="w-4 h-4" />
                     </button>
@@ -375,22 +375,22 @@ export default function RequestForm() {
         </div>
 
         {/* Submit */}
-        <div className="flex items-center justify-between pt-2">
-          <p className="text-xs text-gray-400 dark:text-gray-500">
+        <div className="flex flex-col-reverse sm:flex-row items-stretch sm:items-center justify-between gap-4 pt-2">
+          <p className="text-xs text-gray-400 dark:text-gray-500 text-center sm:text-left">
             Campos com <span className="text-red-500">*</span> são obrigatórios
           </p>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3 w-full sm:w-auto">
             <button
               type="button"
-              onClick={() => navigate('/solicitacoes')}
-              className="btn-secondary"
+              onClick={() => navigate('/app/solicitacoes')}
+              className="btn-secondary flex-1 sm:flex-none justify-center"
             >
               Cancelar
             </button>
             <button
               type="submit"
               disabled={!isValid}
-              className="btn-primary disabled:opacity-40 disabled:cursor-not-allowed"
+              className="btn-primary disabled:opacity-40 disabled:cursor-not-allowed flex-1 sm:flex-none justify-center"
             >
               <Send className="w-4 h-4" />
               Criar Solicitação

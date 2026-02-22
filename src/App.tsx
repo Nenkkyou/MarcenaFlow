@@ -9,6 +9,7 @@ import NewRequest from './pages/NewRequest'
 import Projects from './pages/Projects'
 import Teams from './pages/Teams'
 import Almoxarifado from './pages/Almoxarifado'
+import Historico from './pages/Historico'
 
 export default function App() {
   return (
@@ -27,6 +28,7 @@ export default function App() {
               <Route path="obras" element={<Projects />} />
               <Route path="equipes" element={<Teams />} />
               <Route path="almoxarifado" element={<Almoxarifado />} />
+              <Route path="historico" element={<Historico />} />
             </Route>
           </Routes>
         </BrowserRouter>

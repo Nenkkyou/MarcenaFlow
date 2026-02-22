@@ -68,7 +68,7 @@ export default function RequestCard({ request }: RequestCardProps) {
         </div>
 
         {/* Footer: Deadline + Priority + Attachments */}
-        <div className="flex items-center justify-between pt-3 border-t border-gray-100 dark:border-dark-border">
+        <div className="flex items-center justify-between flex-wrap gap-y-2 pt-3 border-t border-gray-100 dark:border-dark-border">
           <div className="flex items-center gap-3">
             {/* Deadline */}
             <div className={`flex items-center gap-1.5 ${overdue ? 'text-red-500' : 'text-gray-400 dark:text-gray-500'}`}>

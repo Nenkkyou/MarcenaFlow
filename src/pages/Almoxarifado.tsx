@@ -342,7 +342,7 @@ export default function Almoxarifado() {
                             </p>
                           </div>
                         )}
-                        <div className="flex items-center gap-4 text-[11px] text-gray-400 dark:text-gray-500 pt-1">
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4 text-[11px] text-gray-400 dark:text-gray-500 pt-1">
                           <span>Criado: {formatDate(order.createdAt)}</span>
                           <span>Atualizado: {formatDate(order.updatedAt)}</span>
                         </div>

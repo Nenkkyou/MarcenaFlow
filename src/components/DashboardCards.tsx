@@ -59,7 +59,7 @@ export default function DashboardCards({ requests }: DashboardCardsProps) {
       {cards.map((card) => (
         <div
           key={card.title}
-          className={`card p-6 border-l-4 ${card.borderAccent} hover:shadow-md transition-all duration-200 cursor-default`}
+          className={`card p-4 sm:p-6 border-l-4 ${card.borderAccent} hover:shadow-md transition-all duration-200 cursor-default`}
         >
           {/* Icon + Title row */}
           <div className="flex items-center gap-3 mb-4">
@@ -73,7 +73,7 @@ export default function DashboardCards({ requests }: DashboardCardsProps) {
           </div>
 
           {/* Big number */}
-          <p className="text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">{card.value}</p>
+          <p className="text-3xl sm:text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">{card.value}</p>
 
           {/* Change */}
           <div className="mt-3 flex items-center gap-1.5 pt-3 border-t border-gray-100 dark:border-dark-border">

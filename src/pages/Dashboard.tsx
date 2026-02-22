@@ -36,7 +36,7 @@ export default function Dashboard() {
 
       <main className="p-4 sm:p-8 space-y-6 sm:space-y-8">
         {/* Welcome banner */}
-        <div className="card bg-gradient-to-r from-navy-800 to-navy-700 dark:from-dark-card dark:to-dark-surface border-0 p-6 relative overflow-hidden">
+        <div className="card bg-gradient-to-r from-navy-800 to-navy-700 dark:from-dark-card dark:to-dark-surface border-0 p-4 sm:p-6 relative overflow-hidden">
           <div className="relative z-10">
             <h2 className="text-lg font-bold text-white">Bom dia, Eduardo! 👋</h2>
             <p className="text-sm text-blue-200 dark:text-gray-400 mt-1">
@@ -82,7 +82,7 @@ export default function Dashboard() {
           {/* Right Sidebar */}
           <div className="space-y-6">
             {/* Status distribution */}
-            <div className="card p-6">
+            <div className="card p-4 sm:p-6">
               <div className="flex items-center gap-2.5 mb-5">
                 <div className="w-8 h-8 bg-blue-50 dark:bg-blue-500/10 rounded-lg flex items-center justify-center">
                   <TrendingUp className="w-4 h-4 text-blue-500" />
@@ -127,7 +127,7 @@ export default function Dashboard() {
 
             {/* Urgent alerts */}
             {urgentRequests.length > 0 && (
-              <div className="card p-6 border-red-200 dark:border-red-500/20">
+              <div className="card p-4 sm:p-6 border-red-200 dark:border-red-500/20">
                 <div className="flex items-center gap-2.5 mb-5">
                   <div className="w-8 h-8 bg-red-50 dark:bg-red-500/10 rounded-lg flex items-center justify-center">
                     <AlertTriangle className="w-4 h-4 text-red-500" />
@@ -159,7 +159,7 @@ export default function Dashboard() {
             )}
 
             {/* Active Projects */}
-            <div className="card p-6">
+            <div className="card p-4 sm:p-6">
               <div className="flex items-center gap-2.5 mb-5">
                 <div className="w-8 h-8 bg-violet-50 dark:bg-violet-500/10 rounded-lg flex items-center justify-center">
                   <Clock className="w-4 h-4 text-violet-500" />

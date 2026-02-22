@@ -56,16 +56,16 @@ export default function Teams() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-3 mb-5">
-                  <div className="text-center p-3 bg-gray-50 dark:bg-dark-surface rounded-xl">
+                <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-5">
+                  <div className="text-center p-2 sm:p-3 bg-gray-50 dark:bg-dark-surface rounded-xl">
                     <p className="text-lg font-bold text-gray-900 dark:text-white">{teamRequests.length}</p>
                     <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Total</p>
                   </div>
-                  <div className="text-center p-3 bg-amber-50 dark:bg-amber-500/10 rounded-xl">
+                  <div className="text-center p-2 sm:p-3 bg-amber-50 dark:bg-amber-500/10 rounded-xl">
                     <p className="text-lg font-bold text-amber-600 dark:text-amber-400">{pending}</p>
                     <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Pendentes</p>
                   </div>
-                  <div className="text-center p-3 bg-violet-50 dark:bg-violet-500/10 rounded-xl">
+                  <div className="text-center p-2 sm:p-3 bg-violet-50 dark:bg-violet-500/10 rounded-xl">
                     <p className="text-lg font-bold text-violet-600 dark:text-violet-400">{inProgress}</p>
                     <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Produção</p>
                   </div>
