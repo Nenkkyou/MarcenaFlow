@@ -1,7 +1,8 @@
-import { Users as UsersIcon, UserCircle, HardHat } from 'lucide-react'
+import { Users as UsersIcon, UserCircle, HardHat, Building2 } from 'lucide-react'
 import { useOutletContext } from 'react-router-dom'
 import Header from '../components/Header'
 import { mockTeams } from '../mock/mockTeams'
+import { mockProjects } from '../mock/mockProjects'
 import { useApp } from '../context/AppContext'
 
 export default function Teams() {
@@ -39,9 +40,19 @@ export default function Teams() {
                   >
                     <UsersIcon className="w-6 h-6" style={{ color: team.color }} />
                   </div>
-                  <div>
+                  <div className="min-w-0 flex-1">
                     <h3 className="text-base font-semibold text-gray-900 dark:text-white">{team.name}</h3>
                     <p className="text-sm text-gray-500 dark:text-gray-400 mt-0.5">👷 {team.members} membros</p>
+                    {(() => {
+                      const project = mockProjects.find(p => p.id === team.projectId)
+                      if (!project) return null
+                      return (
+                        <div className="flex items-center gap-1.5 mt-1.5">
+                          <Building2 className="w-3.5 h-3.5 text-blue-500" />
+                          <span className="text-xs font-medium text-blue-600 dark:text-blue-400">{project.name}</span>
+                        </div>
+                      )
+                    })()}
                   </div>
                 </div>
 

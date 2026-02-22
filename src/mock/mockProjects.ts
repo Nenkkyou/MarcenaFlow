@@ -7,6 +7,7 @@ export const mockProjects: Project[] = [
     client: 'Ricardo Mendes',
     address: 'Av. Alphaville, 1200 — Barueri, SP',
     status: 'ativa',
+    teamIds: ['team-001', 'team-002'],
   },
   {
     id: 'proj-002',
@@ -14,6 +15,7 @@ export const mockProjects: Project[] = [
     client: 'Fernanda Costa',
     address: 'Rua XV de Novembro, 340 — Centro, Curitiba, PR',
     status: 'ativa',
+    teamIds: ['team-003', 'team-005'],
   },
   {
     id: 'proj-003',
@@ -21,5 +23,6 @@ export const mockProjects: Project[] = [
     client: 'Carlos Alberto',
     address: 'Rua das Dunas, 88 — Guarujá, SP',
     status: 'ativa',
+    teamIds: ['team-004'],
   },
 ]

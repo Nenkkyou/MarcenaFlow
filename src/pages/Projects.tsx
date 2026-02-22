@@ -1,7 +1,8 @@
-import { MapPin, User, Building2, Briefcase } from 'lucide-react'
+import { MapPin, User, Building2, Briefcase, Users } from 'lucide-react'
 import { useOutletContext } from 'react-router-dom'
 import Header from '../components/Header'
 import { mockProjects } from '../mock/mockProjects'
+import { mockTeams } from '../mock/mockTeams'
 import { useApp } from '../context/AppContext'
 
 const statusLabels: Record<string, { label: string; emoji: string; color: string }> = {
@@ -79,6 +80,40 @@ export default function Projects() {
                     <span>✅ {done} finalizada{done !== 1 ? 's' : ''}</span>
                   </div>
                 </div>
+
+                {/* Teams assigned to this project */}
+                {(() => {
+                  const projectTeams = mockTeams.filter(t => project.teamIds.includes(t.id))
+                  if (projectTeams.length === 0) return null
+                  return (
+                    <div className="pt-4 border-t border-gray-100 dark:border-dark-border">
+                      <p className="text-[11px] font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-2 flex items-center gap-1.5">
+                        <Users className="w-3.5 h-3.5" />
+                        Equipes alocadas
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {projectTeams.map(team => (
+                          <span
+                            key={team.id}
+                            className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium border"
+                            style={{
+                              backgroundColor: `${team.color}10`,
+                              borderColor: `${team.color}30`,
+                              color: team.color,
+                            }}
+                          >
+                            <span
+                              className="w-2 h-2 rounded-full"
+                              style={{ backgroundColor: team.color }}
+                            />
+                            {team.name}
+                            <span className="text-[10px] opacity-60">({team.members})</span>
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                  )
+                })()}
               </div>
             )
           })}

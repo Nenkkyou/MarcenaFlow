@@ -4,4 +4,6 @@ export interface Project {
   client: string
   address: string
   status: 'ativa' | 'concluida' | 'pausada'
+  /** IDs of teams assigned to this project */
+  teamIds: string[]
 }
