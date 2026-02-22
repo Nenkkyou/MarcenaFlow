@@ -226,7 +226,7 @@ export default function Historico() {
               <div className="flex items-end">
                 <button
                   onClick={() => { setProjectFilter('all'); setTypeFilter('all') }}
-                  className="px-3 py-2 text-xs font-medium text-rose-500 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-500/10 rounded-lg transition-colors"
+                  className="px-4 py-2.5 text-sm font-medium text-rose-500 hover:text-rose-600 hover:bg-rose-50 dark:hover:bg-rose-500/10 rounded-lg transition-colors"
                 >
                   Limpar filtros
                 </button>
@@ -251,22 +251,22 @@ export default function Historico() {
               return (
                 <div key={key}>
                   {/* Date header */}
-                  <div className="flex items-center gap-3 mb-4 sm:mb-5">
-                    <div className="flex items-center gap-2 px-3 py-1.5 bg-gray-100 dark:bg-dark-surface rounded-lg">
-                      <span className="text-sm font-bold text-gray-700 dark:text-gray-300 capitalize">
+                  <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-5">
+                    <div className="flex items-center gap-2 px-2.5 sm:px-3 py-1.5 bg-gray-100 dark:bg-dark-surface rounded-lg min-w-0 flex-shrink">
+                      <span className="text-xs sm:text-sm font-bold text-gray-700 dark:text-gray-300 capitalize truncate">
                         {relative ? `${relative} · ` : ''}{formatDate(events[0].createdAt)}
                       </span>
                     </div>
-                    <div className="flex-1 h-px bg-gray-200 dark:bg-dark-border" />
-                    <span className="text-xs font-medium text-gray-400 dark:text-gray-500 tabular-nums">
+                    <div className="flex-1 h-px bg-gray-200 dark:bg-dark-border hidden sm:block" />
+                    <span className="text-xs font-medium text-gray-400 dark:text-gray-500 tabular-nums flex-shrink-0">
                       {events.length} evento{events.length !== 1 ? 's' : ''}
                     </span>
                   </div>
 
                   {/* Events timeline */}
-                  <div className="relative ml-4 sm:ml-6">
+                  <div className="relative ml-2 sm:ml-6">
                     {/* Vertical line */}
-                    <div className="absolute left-4 top-0 bottom-0 w-px bg-gray-200 dark:bg-dark-border" />
+                    <div className="absolute left-[14px] sm:left-4 top-0 bottom-0 w-px bg-gray-200 dark:bg-dark-border" />
 
                     <div className="space-y-1">
                       {events.map((ev, idx) => {
@@ -276,10 +276,10 @@ export default function Historico() {
                         const isLast = idx === events.length - 1
 
                         return (
-                          <div key={ev.id} className="relative flex gap-3 sm:gap-4 group">
+                          <div key={ev.id} className="relative flex gap-2 sm:gap-4 group">
                             {/* Timeline dot */}
                             <div className="relative z-10 flex-shrink-0">
-                              <div className={`w-8 h-8 sm:w-9 sm:h-9 rounded-full ${cfg.bg} ring-2 ${cfg.ring} ring-offset-2 ring-offset-white dark:ring-offset-dark-bg flex items-center justify-center transition-transform group-hover:scale-110`}>
+                              <div className={`w-7 h-7 sm:w-9 sm:h-9 rounded-full ${cfg.bg} ring-2 ${cfg.ring} ring-offset-2 ring-offset-white dark:ring-offset-dark-bg flex items-center justify-center transition-transform group-hover:scale-110`}>
                                 <Icon className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${cfg.color}`} />
                               </div>
                             </div>

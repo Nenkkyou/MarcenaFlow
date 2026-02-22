@@ -65,7 +65,7 @@ export default function Footer() {
                   key={social.label}
                   href={social.href}
                   aria-label={social.label}
-                  className="w-9 h-9 bg-gray-100 dark:bg-dark-hover rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-dark-surface hover:text-gray-700 dark:hover:text-white transition-all duration-200"
+                  className="w-10 h-10 bg-gray-100 dark:bg-dark-hover rounded-lg flex items-center justify-center text-gray-500 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-dark-surface hover:text-gray-700 dark:hover:text-white transition-all duration-200"
                 >
                   <social.icon className="w-4 h-4" />
                 </a>
@@ -77,12 +77,12 @@ export default function Footer() {
           {Object.entries(footerLinks).map(([title, links]) => (
             <div key={title}>
               <h4 className="text-sm font-semibold text-gray-900 dark:text-white mb-4">{title}</h4>
-              <ul className="space-y-3">
+              <ul className="space-y-1">
                 {links.map((link) => (
                   <li key={link.label}>
                     <button
                       onClick={() => scrollTo(link.href)}
-                      className="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
+                      className="text-sm py-1.5 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
                     >
                       {link.label}
                     </button>

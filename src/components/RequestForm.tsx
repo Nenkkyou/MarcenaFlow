@@ -331,9 +331,10 @@ export default function RequestForm() {
           >
             <Upload className={`w-10 h-10 mx-auto mb-3 ${dragActive ? 'text-blue-500' : 'text-gray-400 dark:text-gray-500'}`} />
             <p className="text-sm font-semibold text-gray-700 dark:text-gray-300">
-              Arraste arquivos aqui ou{' '}
+              <span className="hidden sm:inline">Arraste arquivos aqui ou{' '}</span>
               <label className="text-blue-500 hover:text-blue-600 cursor-pointer underline underline-offset-2">
-                clique para selecionar
+                <span className="sm:hidden">Toque para selecionar arquivos</span>
+                <span className="hidden sm:inline">clique para selecionar</span>
                 <input
                   type="file"
                   multiple

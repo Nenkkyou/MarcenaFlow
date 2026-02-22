@@ -202,7 +202,7 @@ export default function Almoxarifado() {
             <button
               key={tab.key}
               onClick={() => setActiveTab(tab.key)}
-              className={`flex-shrink-0 flex items-center gap-1.5 px-3.5 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
+              className={`flex-shrink-0 flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                 activeTab === tab.key
                   ? 'bg-blue-500 text-white shadow-md shadow-blue-500/25'
                   : 'bg-white dark:bg-dark-card text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-dark-hover border border-gray-200 dark:border-dark-border'

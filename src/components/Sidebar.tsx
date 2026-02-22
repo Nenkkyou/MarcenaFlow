@@ -66,7 +66,7 @@ export default function Sidebar({ open, collapsed, onClose, onToggleCollapse }: 
           {/* Mobile close button */}
           <button
             onClick={onClose}
-            className="lg:hidden p-2 text-gray-400 hover:text-white hover:bg-white/10 rounded-xl transition-colors active:scale-95"
+            className="lg:hidden p-2.5 text-gray-400 hover:text-white hover:bg-white/10 rounded-xl transition-colors active:scale-95"
             aria-label="Fechar menu"
           >
             <X className="w-5 h-5" />
