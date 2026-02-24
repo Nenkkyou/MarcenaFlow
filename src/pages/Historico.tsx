@@ -237,15 +237,15 @@ export default function Historico() {
 
         {/* Timeline */}
         {grouped.length === 0 ? (
-          <div className="text-center py-16">
-            <div className="w-16 h-16 mx-auto mb-4 bg-gray-100 dark:bg-dark-surface rounded-2xl flex items-center justify-center">
+          <div className="text-center py-10 sm:py-16">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-4 bg-gray-100 dark:bg-dark-surface rounded-2xl flex items-center justify-center">
               <History className="w-8 h-8 text-gray-300 dark:text-gray-600" />
             </div>
             <p className="text-gray-500 dark:text-gray-400 font-medium">Nenhum evento encontrado</p>
             <p className="text-sm text-gray-400 dark:text-gray-500 mt-1">Tente ajustar os filtros de busca</p>
           </div>
         ) : (
-          <div className="space-y-8 sm:space-y-10">
+          <div className="space-y-5 sm:space-y-10">
             {grouped.map(([key, events]) => {
               const relative = relativeDay(key)
               return (

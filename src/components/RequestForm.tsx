@@ -98,8 +98,8 @@ export default function RequestForm() {
   // Success state
   if (submitted) {
     return (
-      <div className="max-w-lg mx-auto mt-12">
-        <div className="card p-12 text-center">
+      <div className="max-w-lg mx-auto mt-6 sm:mt-12">
+        <div className="card p-6 sm:p-12 text-center">
           <div className="w-16 h-16 bg-emerald-50 dark:bg-emerald-500/10 rounded-2xl mx-auto flex items-center justify-center mb-4">
             <CheckCircle className="w-8 h-8 text-emerald-500" />
           </div>
@@ -135,10 +135,10 @@ export default function RequestForm() {
         </p>
       </div>
 
-      <div className="space-y-6">
+      <div className="space-y-4 sm:space-y-6">
         {/* Obra e Equipe */}
-        <div className="card p-6">
-          <div className="flex items-center gap-2.5 mb-5">
+        <div className="card p-4 sm:p-6">
+          <div className="flex items-center gap-2.5 mb-3 sm:mb-5">
             <div className="w-8 h-8 bg-blue-50 dark:bg-blue-500/10 rounded-lg flex items-center justify-center">
               <Building2 className="w-4 h-4 text-blue-500" />
             </div>
@@ -183,8 +183,8 @@ export default function RequestForm() {
         </div>
 
         {/* Tipo e Descrição */}
-        <div className="card p-6">
-          <div className="flex items-center gap-2.5 mb-5">
+        <div className="card p-4 sm:p-6">
+          <div className="flex items-center gap-2.5 mb-3 sm:mb-5">
             <div className="w-8 h-8 bg-violet-50 dark:bg-violet-500/10 rounded-lg flex items-center justify-center">
               <FileQuestion className="w-4 h-4 text-violet-500" />
             </div>
@@ -229,8 +229,8 @@ export default function RequestForm() {
         </div>
 
         {/* Prioridade e Prazo */}
-        <div className="card p-6">
-          <div className="flex items-center gap-2.5 mb-5">
+        <div className="card p-4 sm:p-6">
+          <div className="flex items-center gap-2.5 mb-3 sm:mb-5">
             <div className="w-8 h-8 bg-amber-50 dark:bg-amber-500/10 rounded-lg flex items-center justify-center">
               <AlertCircle className="w-4 h-4 text-amber-500" />
             </div>
@@ -308,8 +308,8 @@ export default function RequestForm() {
         </div>
 
         {/* Anexos */}
-        <div className="card p-6">
-          <div className="flex items-center gap-2.5 mb-5">
+        <div className="card p-4 sm:p-6">
+          <div className="flex items-center gap-2.5 mb-3 sm:mb-5">
             <div className="w-8 h-8 bg-emerald-50 dark:bg-emerald-500/10 rounded-lg flex items-center justify-center">
               <Upload className="w-4 h-4 text-emerald-500" />
             </div>

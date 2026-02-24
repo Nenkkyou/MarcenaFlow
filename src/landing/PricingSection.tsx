@@ -74,13 +74,13 @@ export default function PricingSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12 sm:mb-20"
+          className="text-center mb-8 sm:mb-20"
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 bg-blue-50 dark:bg-blue-500/10 border border-blue-200/50 dark:border-blue-500/20 rounded-full mb-5 sm:mb-6">
             <Crown className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-blue-500" />
             <span className="text-xs sm:text-sm font-medium text-blue-700 dark:text-blue-400">Preços transparentes</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
             Planos que cabem
             <br />
             <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
@@ -104,7 +104,7 @@ export default function PricingSection() {
                 delay: 0.1 + index * 0.15,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              className={`relative bg-white dark:bg-dark-card rounded-2xl border-2 ${plan.borderColor} p-8 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 ${
+              className={`relative bg-white dark:bg-dark-card rounded-2xl border-2 ${plan.borderColor} p-5 sm:p-8 transition-all duration-500 hover:shadow-xl hover:-translate-y-1 ${
                 plan.popular ? 'md:-mt-4 md:mb-0 shadow-xl' : ''
               }`}
             >
@@ -118,7 +118,7 @@ export default function PricingSection() {
               )}
 
               {/* Plan header */}
-              <div className="mb-8">
+              <div className="mb-5 sm:mb-8">
                 <div className={`w-12 h-12 bg-gradient-to-br ${plan.color} rounded-xl flex items-center justify-center shadow-lg mb-4`}>
                   <plan.icon className="w-6 h-6 text-white" />
                 </div>
@@ -131,10 +131,10 @@ export default function PricingSection() {
               </div>
 
               {/* Price */}
-              <div className="mb-8">
+              <div className="mb-5 sm:mb-8">
                 <div className="flex items-baseline gap-1">
                   <span className="text-sm font-medium text-gray-500 dark:text-gray-400">R$</span>
-                  <span className="text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+                  <span className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
                     {plan.price}
                   </span>
                   <span className="text-sm font-medium text-gray-500 dark:text-gray-400">/mês</span>
@@ -144,7 +144,7 @@ export default function PricingSection() {
               {/* CTA */}
               <Link
                 to="/login"
-                className={`block w-full text-center py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 mb-8 ${
+                className={`block w-full text-center py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 mb-5 sm:mb-8 ${
                   plan.popular
                     ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:from-blue-600 hover:to-blue-700'
                     : 'bg-gray-100 dark:bg-dark-hover text-gray-700 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-dark-surface'

@@ -49,13 +49,13 @@ export default function HowItWorksSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12 sm:mb-20"
+          className="text-center mb-8 sm:mb-20"
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 bg-emerald-50 dark:bg-emerald-500/10 border border-emerald-200/50 dark:border-emerald-500/20 rounded-full mb-5 sm:mb-6">
             <Settings className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-500" />
             <span className="text-xs sm:text-sm font-medium text-emerald-700 dark:text-emerald-400">Simples e eficiente</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
             Como funciona?
           </h2>
           <p className="mt-4 sm:mt-6 text-base sm:text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto px-2 sm:px-0">
@@ -90,9 +90,9 @@ export default function HowItWorksSection() {
               >
                 <div className="bg-white dark:bg-dark-card rounded-2xl border border-gray-100 dark:border-dark-border p-6 sm:p-8 text-center hover:shadow-xl hover:-translate-y-2 transition-all duration-500 h-full">
                   {/* Step number */}
-                  <div className="relative mx-auto mb-6">
-                    <div className={`w-16 h-16 mx-auto bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500`}>
-                      <step.icon className="w-8 h-8 text-white" />
+                  <div className="relative mx-auto mb-4 sm:mb-6">
+                    <div className={`w-12 h-12 sm:w-16 sm:h-16 mx-auto bg-gradient-to-br ${step.color} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500`}>
+                      <step.icon className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                     </div>
                     <div className="absolute -top-2 -right-2 w-7 h-7 bg-white dark:bg-dark-card border-2 border-gray-200 dark:border-dark-border rounded-full flex items-center justify-center shadow-sm">
                       <span className="text-xs font-bold text-gray-900 dark:text-white">{step.number}</span>

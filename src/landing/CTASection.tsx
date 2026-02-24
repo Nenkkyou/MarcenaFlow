@@ -14,7 +14,7 @@ export default function CTASection() {
           className="relative"
         >
           {/* Background card */}
-          <div className="relative overflow-hidden bg-gradient-to-br from-navy-800 via-navy-900 to-navy-950 rounded-2xl sm:rounded-3xl p-8 sm:p-16 lg:p-20">
+          <div className="relative overflow-hidden bg-gradient-to-br from-navy-800 via-navy-900 to-navy-950 rounded-2xl sm:rounded-3xl p-6 sm:p-16 lg:p-20">
             {/* Decorative elements */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4" />
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-violet-500/10 rounded-full blur-[100px] translate-y-1/2 -translate-x-1/4" />
@@ -35,9 +35,9 @@ export default function CTASection() {
                 whileInView={{ scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, type: 'spring', bounce: 0.4 }}
-                className="w-16 h-16 bg-gradient-to-br from-blue-500 to-violet-600 rounded-2xl flex items-center justify-center mx-auto mb-8 shadow-2xl shadow-blue-500/30"
+                className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-blue-500 to-violet-600 rounded-2xl flex items-center justify-center mx-auto mb-5 sm:mb-8 shadow-2xl shadow-blue-500/30"
               >
-                <Rocket className="w-8 h-8 text-white" />
+                <Rocket className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
               </motion.div>
 
               <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">

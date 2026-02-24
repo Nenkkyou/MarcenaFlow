@@ -101,13 +101,13 @@ export default function FeaturesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12 sm:mb-20"
+          className="text-center mb-8 sm:mb-20"
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 bg-violet-50 dark:bg-violet-500/10 border border-violet-200/50 dark:border-violet-500/20 rounded-full mb-5 sm:mb-6">
             <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-violet-500" />
             <span className="text-xs sm:text-sm font-medium text-violet-700 dark:text-violet-400">Tudo que você precisa</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
             Funcionalidades que
             <br />
             <span className="bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent">
@@ -156,17 +156,17 @@ export default function FeaturesSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={statsInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="mt-12 sm:mt-24 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6"
+          className="mt-8 sm:mt-24 grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6"
         >
           {highlights.map((stat) => (
             <div
               key={stat.label}
-              className="relative group text-center p-8 bg-gradient-to-br from-gray-50 to-white dark:from-dark-card dark:to-dark-surface rounded-2xl border border-gray-100 dark:border-dark-border hover:border-blue-200 dark:hover:border-blue-500/30 transition-all duration-300"
+              className="relative group text-center p-5 sm:p-8 bg-gradient-to-br from-gray-50 to-white dark:from-dark-card dark:to-dark-surface rounded-2xl border border-gray-100 dark:border-dark-border hover:border-blue-200 dark:hover:border-blue-500/30 transition-all duration-300"
             >
               <div className="w-12 h-12 bg-blue-50 dark:bg-blue-500/10 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
                 <stat.icon className="w-6 h-6 text-blue-500" />
               </div>
-              <p className="text-4xl font-extrabold bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent mb-2">
+              <p className="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-blue-500 to-violet-500 bg-clip-text text-transparent mb-2">
                 {stat.value}
               </p>
               <p className="text-sm font-medium text-gray-500 dark:text-gray-400">

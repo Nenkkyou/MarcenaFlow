@@ -29,7 +29,7 @@ export default function Teams() {
 
       <main className="p-4 sm:p-8">
         {/* Page header */}
-        <div className="flex items-center gap-3 mb-8">
+        <div className="flex items-center gap-3 mb-5 sm:mb-8">
           <div className="w-10 h-10 bg-violet-50 dark:bg-violet-500/10 rounded-xl flex items-center justify-center">
             <HardHat className="w-5 h-5 text-violet-500" />
           </div>
@@ -39,7 +39,7 @@ export default function Teams() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
           {mockTeams.map(team => {
             const teamRequests = requests.filter(r => r.teamId === team.id)
             const pending = teamRequests.filter(r => r.status !== 'finalizado').length
@@ -49,9 +49,9 @@ export default function Teams() {
               <button
                 key={team.id}
                 onClick={() => setSelectedTeam(team)}
-                className="card-hover p-6 text-left w-full transition-all duration-200 hover:ring-2 hover:ring-blue-500/30 active:scale-[0.98] cursor-pointer"
+                className="card-hover p-4 sm:p-6 text-left w-full transition-all duration-200 hover:ring-2 hover:ring-blue-500/30 active:scale-[0.98] cursor-pointer"
               >
-                <div className="flex items-start gap-4 mb-5">
+                <div className="flex items-start gap-4 mb-3 sm:mb-5">
                   <div
                     className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
                     style={{ backgroundColor: `${team.color}15` }}
@@ -77,7 +77,7 @@ export default function Teams() {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-5">
+                <div className="grid grid-cols-3 gap-2 sm:gap-3 mb-3 sm:mb-5">
                   <div className="text-center p-2 sm:p-3 bg-gray-50 dark:bg-dark-surface rounded-xl">
                     <p className="text-lg font-bold text-gray-900 dark:text-white">{teamRequests.length}</p>
                     <p className="text-xs text-gray-500 dark:text-gray-400 mt-0.5">Total</p>

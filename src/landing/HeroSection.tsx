@@ -176,7 +176,7 @@ export default function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 1.3 }}
-          className="mt-10 sm:mt-20 pb-6 sm:pb-10"
+          className="mt-8 sm:mt-20 pb-6 sm:pb-10"
         >
           <p className="text-xs sm:text-sm font-medium text-gray-400 dark:text-gray-500 mb-4 sm:mb-6">
             Confiado por mais de 200+ marcenarias no Brasil

@@ -188,7 +188,7 @@ export default function Veiculos() {
               <button
                 key={vehicle.id}
                 onClick={() => setSelectedVehicle(vehicle)}
-                className="card-hover p-5 text-left w-full cursor-pointer hover:ring-2 hover:ring-blue-500/30 active:scale-[0.98] transition-all"
+                className="card-hover p-4 sm:p-5 text-left w-full cursor-pointer hover:ring-2 hover:ring-blue-500/30 active:scale-[0.98] transition-all"
               >
                 {/* Header */}
                 <div className="flex items-start gap-3 mb-4">

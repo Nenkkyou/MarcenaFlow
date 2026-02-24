@@ -34,9 +34,9 @@ export default function Login() {
       
       {/* Floating gradient orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-1/4 -left-1/4 w-[600px] h-[600px] rounded-full bg-blue-500/20 blur-[120px] animate-float-slow" />
-        <div className="absolute -bottom-1/4 -right-1/4 w-[500px] h-[500px] rounded-full bg-violet-500/15 blur-[120px] animate-float-slow-reverse" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-cyan-500/10 blur-[100px] animate-pulse-slow" />
+        <div className="absolute -top-1/4 -left-1/4 w-[300px] h-[300px] sm:w-[600px] sm:h-[600px] rounded-full bg-blue-500/20 blur-[120px] animate-float-slow" />
+        <div className="absolute -bottom-1/4 -right-1/4 w-[250px] h-[250px] sm:w-[500px] sm:h-[500px] rounded-full bg-violet-500/15 blur-[120px] animate-float-slow-reverse" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] h-[200px] sm:w-[400px] sm:h-[400px] rounded-full bg-cyan-500/10 blur-[100px] animate-pulse-slow" />
       </div>
 
       {/* Grid pattern overlay */}

@@ -49,13 +49,13 @@ export default function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12 sm:mb-20"
+          className="text-center mb-8 sm:mb-20"
         >
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 sm:px-4 sm:py-2 bg-amber-50 dark:bg-amber-500/10 border border-amber-200/50 dark:border-amber-500/20 rounded-full mb-5 sm:mb-6">
             <Star className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-amber-500" />
             <span className="text-xs sm:text-sm font-medium text-amber-700 dark:text-amber-400">+200 marcenarias satisfeitas</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
             Quem usa,
             <span className="bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent"> recomenda</span>
           </h2>
@@ -84,14 +84,14 @@ export default function TestimonialsSection() {
               </div>
 
               {/* Stars */}
-              <div className="flex gap-1 mb-6">
+              <div className="flex gap-1 mb-4 sm:mb-6">
                 {Array.from({ length: t.rating }).map((_, i) => (
                   <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
                 ))}
               </div>
 
               {/* Quote text */}
-              <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-8 relative">
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-5 sm:mb-8 relative">
                 "{t.quote}"
               </p>
 

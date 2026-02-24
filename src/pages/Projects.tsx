@@ -42,7 +42,7 @@ export default function Projects() {
       <Header title="Obras" subtitle="Visualize o andamento de cada projeto" onOpenSidebar={onOpenSidebar} />
 
       <main className="p-4 sm:p-8">
-        <div className="flex items-center gap-3 mb-8">
+        <div className="flex items-center gap-3 mb-5 sm:mb-8">
           <div className="w-10 h-10 bg-blue-50 dark:bg-blue-500/10 rounded-xl flex items-center justify-center">
             <Briefcase className="w-5 h-5 text-blue-500" />
           </div>
@@ -52,7 +52,7 @@ export default function Projects() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
           {mockProjects.map(project => {
             const projectRequests = requests.filter(r => r.projectId === project.id)
             const pending = projectRequests.filter(r => r.status !== 'finalizado').length
@@ -64,7 +64,7 @@ export default function Projects() {
               <button
                 key={project.id}
                 onClick={() => setSelectedProject(project)}
-                className="card-hover p-6 text-left w-full transition-all duration-200 hover:ring-2 hover:ring-blue-500/30 active:scale-[0.98] cursor-pointer"
+                className="card-hover p-4 sm:p-6 text-left w-full transition-all duration-200 hover:ring-2 hover:ring-blue-500/30 active:scale-[0.98] cursor-pointer"
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3">

@@ -47,7 +47,7 @@ export default function Footer() {
     <footer className="bg-white dark:bg-dark-card border-t border-gray-100 dark:border-dark-border">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         {/* Main footer */}
-        <div className="py-16 grid grid-cols-2 md:grid-cols-6 gap-8">
+        <div className="py-10 sm:py-16 grid grid-cols-2 md:grid-cols-6 gap-5 sm:gap-8">
           {/* Brand */}
           <div className="col-span-2">
             <Link to="/" className="flex items-center gap-3 mb-4">

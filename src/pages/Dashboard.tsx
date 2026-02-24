@@ -167,7 +167,7 @@ export default function Dashboard() {
           )}
 
           <div className="absolute right-6 top-6 opacity-[0.06] pointer-events-none">
-            <Zap className="w-28 h-28 text-white" />
+            <Zap className="w-16 h-16 sm:w-28 sm:h-28 text-white" />
           </div>
         </div>
 

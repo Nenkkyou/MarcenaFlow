@@ -223,7 +223,7 @@ export default function Almoxarifado() {
         {/* Orders list */}
         <div className="space-y-3">
           {filteredOrders.length === 0 && (
-            <div className="card p-12 text-center">
+            <div className="card p-6 sm:p-12 text-center">
               <Package className="w-12 h-12 text-gray-300 dark:text-gray-600 mx-auto mb-3" />
               <p className="text-gray-500 dark:text-gray-400 font-medium">Nenhuma ordem encontrada</p>
               <p className="text-sm text-gray-400 dark:text-gray-500 mt-1">Tente ajustar os filtros ou busca.</p>

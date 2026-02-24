@@ -29,7 +29,7 @@ export default function RequestList({ requests }: RequestListProps) {
 
         <div className="flex items-center gap-3 flex-wrap">
           {/* Status filter */}
-          <div className="flex-1 min-w-[180px]">
+          <div className="flex-1 min-w-[140px] sm:min-w-[180px]">
             <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wider">
               Status
             </label>
@@ -46,7 +46,7 @@ export default function RequestList({ requests }: RequestListProps) {
           </div>
 
           {/* Priority filter */}
-          <div className="flex-1 min-w-[180px]">
+          <div className="flex-1 min-w-[140px] sm:min-w-[180px]">
             <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wider">
               Prioridade
             </label>
@@ -74,8 +74,8 @@ export default function RequestList({ requests }: RequestListProps) {
 
       {/* List */}
       {filtered.length === 0 ? (
-        <div className="card p-16 text-center">
-          <div className="w-16 h-16 bg-gray-100 dark:bg-dark-surface rounded-2xl mx-auto flex items-center justify-center mb-4">
+        <div className="card p-8 sm:p-16 text-center">
+          <div className="w-12 h-12 sm:w-16 sm:h-16 bg-gray-100 dark:bg-dark-surface rounded-2xl mx-auto flex items-center justify-center mb-4">
             <Inbox className="w-8 h-8 text-gray-400 dark:text-gray-500" />
           </div>
           <p className="text-base font-bold text-gray-900 dark:text-white">Nenhuma solicitação encontrada</p>

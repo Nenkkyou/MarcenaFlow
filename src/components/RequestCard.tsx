@@ -24,7 +24,7 @@ export default function RequestCard({ request }: RequestCardProps) {
         request.priority === 'media' ? 'bg-blue-500' : 'bg-gray-300 dark:bg-gray-600'
       }`} />
 
-      <div className="p-5 space-y-4">
+      <div className="p-3.5 sm:p-5 space-y-3 sm:space-y-4">
         {/* Header: Type + Status */}
         <div className="flex items-start justify-between gap-3">
           <div className="flex-1 min-w-0">
