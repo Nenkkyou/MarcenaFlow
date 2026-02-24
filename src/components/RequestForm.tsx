@@ -117,7 +117,7 @@ export default function RequestForm() {
   const progress = Math.round((filledFields / 6) * 100)
 
   return (
-    <form onSubmit={handleSubmit} className="max-w-2xl">
+    <form onSubmit={handleSubmit} className="max-w-4xl mx-auto">
       {/* Progress bar */}
       <div className="card p-4 mb-6">
         <div className="flex items-center justify-between mb-2">
