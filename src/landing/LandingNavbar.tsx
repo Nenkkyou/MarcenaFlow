@@ -76,13 +76,13 @@ export default function LandingNavbar() {
             {/* Desktop CTA */}
             <div className="hidden md:flex items-center gap-3">
               <Link
-                to="/app"
+                to="/login"
                 className="px-4 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
               >
                 Entrar
               </Link>
               <Link
-                to="/app"
+                to="/login"
                 className="px-5 py-2.5 text-sm font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl hover:from-blue-600 hover:to-blue-700 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 transition-all duration-300"
               >
                 Começar Grátis
@@ -133,14 +133,14 @@ export default function LandingNavbar() {
                 ))}
                 <div className="mt-3 pt-3 border-t border-gray-100 dark:border-dark-border flex flex-col gap-2">
                   <Link
-                    to="/app"
+                    to="/login"
                     onClick={() => setMobileOpen(false)}
                     className="w-full text-center px-5 py-3.5 text-base font-medium text-gray-700 dark:text-gray-300 rounded-xl border border-gray-200 dark:border-dark-border hover:bg-gray-50 dark:hover:bg-dark-hover active:scale-[0.98] transition-all"
                   >
                     Entrar
                   </Link>
                   <Link
-                    to="/app"
+                    to="/login"
                     onClick={() => setMobileOpen(false)}
                     className="w-full text-center px-5 py-3.5 text-base font-semibold text-white bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl shadow-lg active:scale-[0.98] transition-all"
                   >

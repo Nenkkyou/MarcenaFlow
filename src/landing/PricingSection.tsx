@@ -143,7 +143,7 @@ export default function PricingSection() {
 
               {/* CTA */}
               <Link
-                to="/app"
+                to="/login"
                 className={`block w-full text-center py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 mb-8 ${
                   plan.popular
                     ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:from-blue-600 hover:to-blue-700'

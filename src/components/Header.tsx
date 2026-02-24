@@ -32,7 +32,7 @@ export default function Header({ title, subtitle, onOpenSidebar }: HeaderProps) 
           </div>
         </div>
 
-        <div className="flex items-center gap-1.5 sm:gap-2">
+        <div className="flex items-center gap-2">
           {/* Search — mobile icon */}
           <button className="relative p-2.5 rounded-xl text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300
                              hover:bg-gray-100 dark:hover:bg-dark-surface transition-all duration-200 md:hidden">

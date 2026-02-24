@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { AppProvider } from './context/AppContext'
 import { ThemeProvider } from './context/ThemeContext'
 import LandingPage from './landing/LandingPage'
+import Login from './pages/Login'
 import AppLayout from './layouts/AppLayout'
 import Dashboard from './pages/Dashboard'
 import Requests from './pages/Requests'
@@ -21,6 +22,7 @@ export default function App() {
           <Routes>
             {/* Landing page */}
             <Route path="/" element={<LandingPage />} />
+            <Route path="/login" element={<Login />} />
 
             {/* App routes */}
             <Route path="/app" element={<AppLayout />}>

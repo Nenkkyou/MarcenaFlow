@@ -52,7 +52,7 @@ export default function CTASection() {
 
               <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <Link
-                  to="/app"
+                  to="/login"
                   className="group w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-7 py-3.5 sm:px-8 sm:py-4 text-base font-semibold text-navy-900 bg-white rounded-2xl hover:bg-gray-100 shadow-2xl shadow-black/20 transition-all duration-300 hover:-translate-y-0.5 active:scale-[0.98]"
                 >
                   Começar Agora — É Grátis

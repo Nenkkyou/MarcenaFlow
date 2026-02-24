@@ -221,7 +221,7 @@ export default function Teams() {
                       </div>
                       <a
                         href={`tel:${member.phone}`}
-                        className="p-2 text-gray-400 hover:text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors flex-shrink-0"
+                        className="p-3 text-gray-400 hover:text-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 rounded-lg transition-colors flex-shrink-0 min-w-[44px] min-h-[44px] flex items-center justify-center"
                         title={member.phone}
                         onClick={(e) => e.stopPropagation()}
                       >
