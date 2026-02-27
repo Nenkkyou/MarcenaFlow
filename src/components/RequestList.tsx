@@ -1,20 +1,36 @@
 import { useState } from 'react'
 import { Filter, Search, Inbox } from 'lucide-react'
-import type { Request, Status, Priority } from '../types'
+import type { Request, Status, Priority, Project, Team } from '../types'
 import RequestCard from './RequestCard'
 import { statusConfig, priorityConfig } from '../utils/helpers'
 
 interface RequestListProps {
   requests: Request[]
+  projects: Project[]
+  teams: Team[]
+  onSelectRequest?: (r: Request) => void
 }
 
-export default function RequestList({ requests }: RequestListProps) {
+export default function RequestList({ requests, projects, teams, onSelectRequest }: RequestListProps) {
   const [statusFilter, setStatusFilter] = useState<Status | 'todos'>('todos')
   const [priorityFilter, setPriorityFilter] = useState<Priority | 'todos'>('todos')
+  const [searchQuery, setSearchQuery] = useState('')
 
   const filtered = requests.filter(r => {
     if (statusFilter !== 'todos' && r.status !== statusFilter) return false
     if (priorityFilter !== 'todos' && r.priority !== priorityFilter) return false
+    if (searchQuery.trim()) {
+      const q = searchQuery.toLowerCase()
+      const project = projects.find(p => p.id === r.projectId)
+      const team = teams.find(t => t.id === r.teamId)
+      if (
+        !r.type.toLowerCase().includes(q) &&
+        !r.description.toLowerCase().includes(q) &&
+        !r.id.toLowerCase().includes(q) &&
+        !(project?.name.toLowerCase().includes(q)) &&
+        !(team?.name.toLowerCase().includes(q))
+      ) return false
+    }
     return true
   })
 
@@ -28,16 +44,15 @@ export default function RequestList({ requests }: RequestListProps) {
         </div>
 
         <div className="flex items-center gap-3 flex-wrap">
+          {/* Search */}
+          <div className="relative flex-1 min-w-[200px]">
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
+            <input type="text" placeholder="Buscar por tipo, descrição, obra..." value={searchQuery} onChange={e => setSearchQuery(e.target.value)} className="w-full pl-9 pr-4 py-2.5 bg-white dark:bg-dark-card border border-gray-200 dark:border-dark-border rounded-xl text-sm text-gray-900 dark:text-gray-100 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-all" />
+          </div>
+
           {/* Status filter */}
           <div className="flex-1 min-w-[140px] sm:min-w-[180px]">
-            <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wider">
-              Status
-            </label>
-            <select
-              value={statusFilter}
-              onChange={(e) => setStatusFilter(e.target.value as Status | 'todos')}
-              className="select-field"
-            >
+            <select value={statusFilter} onChange={(e) => setStatusFilter(e.target.value as Status | 'todos')} className="select-field">
               <option value="todos">📋 Todos os status</option>
               {(Object.keys(statusConfig) as Status[]).map(s => (
                 <option key={s} value={s}>{statusConfig[s].emoji} {statusConfig[s].label}</option>
@@ -47,14 +62,7 @@ export default function RequestList({ requests }: RequestListProps) {
 
           {/* Priority filter */}
           <div className="flex-1 min-w-[140px] sm:min-w-[180px]">
-            <label className="block text-xs font-semibold text-gray-500 dark:text-gray-400 mb-1.5 uppercase tracking-wider">
-              Prioridade
-            </label>
-            <select
-              value={priorityFilter}
-              onChange={(e) => setPriorityFilter(e.target.value as Priority | 'todos')}
-              className="select-field"
-            >
+            <select value={priorityFilter} onChange={(e) => setPriorityFilter(e.target.value as Priority | 'todos')} className="select-field">
               <option value="todos">⚡ Todas as prioridades</option>
               {(Object.keys(priorityConfig) as Priority[]).map(p => (
                 <option key={p} value={p}>{priorityConfig[p].emoji} {priorityConfig[p].label}</option>
@@ -86,7 +94,13 @@ export default function RequestList({ requests }: RequestListProps) {
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
           {filtered.map((request) => (
-            <RequestCard key={request.id} request={request} />
+            <RequestCard
+              key={request.id}
+              request={request}
+              project={projects.find(p => p.id === request.projectId)}
+              team={teams.find(t => t.id === request.teamId)}
+              onClick={() => onSelectRequest?.(request)}
+            />
           ))}
         </div>
       )}

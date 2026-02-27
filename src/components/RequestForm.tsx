@@ -89,7 +89,7 @@ export default function RequestForm() {
     })
 
     setSubmitted(true)
-    setTimeout(() => navigate('/solicitacoes'), 1800)
+    setTimeout(() => navigate('/app/solicitacoes'), 1800)
   }
 
   const handleDrop = (e: React.DragEvent) => {

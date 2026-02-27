@@ -1,22 +1,21 @@
 import { Calendar, Paperclip, AlertTriangle, Building2, Users } from 'lucide-react'
-import type { Request } from '../types'
-import { mockProjects } from '../mock/mockProjects'
-import { mockTeams } from '../mock/mockTeams'
+import type { Request, Project, Team } from '../types'
 import { statusConfig, priorityConfig, formatDate, isOverdue } from '../utils/helpers'
 
 interface RequestCardProps {
   request: Request
+  project?: Project
+  team?: Team
+  onClick?: () => void
 }
 
-export default function RequestCard({ request }: RequestCardProps) {
-  const project = mockProjects.find(p => p.id === request.projectId)
-  const team = mockTeams.find(t => t.id === request.teamId)
+export default function RequestCard({ request, project, team, onClick }: RequestCardProps) {
   const status = statusConfig[request.status]
   const priority = priorityConfig[request.priority]
   const overdue = isOverdue(request.deadline) && request.status !== 'finalizado'
 
   return (
-    <div className="card-hover p-0 overflow-hidden group">
+    <div className="card-hover p-0 overflow-hidden group cursor-pointer" onClick={onClick}>
       {/* Color top strip based on priority */}
       <div className={`h-1 ${
         request.priority === 'urgente' ? 'bg-red-500' :

@@ -14,12 +14,12 @@ import {
   ChevronUp,
   X,
   Eye,
+  Loader2,
+  Trash2,
 } from 'lucide-react'
 import { Link, useOutletContext } from 'react-router-dom'
 import Header from '../components/Header'
 import { useApp } from '../context/AppContext'
-import { mockProjects } from '../mock/mockProjects'
-import { mockTeams } from '../mock/mockTeams'
 import { statusConfig, priorityConfig, formatDate, isOverdue } from '../utils/helpers'
 import type { Status, Request } from '../types'
 
@@ -29,10 +29,13 @@ import type { Status, Request } from '../types'
 
 export default function Dashboard() {
   const { onOpenSidebar } = useOutletContext<{ onOpenSidebar: () => void }>()
-  const { requests } = useApp()
+  const { requests, projects, teams, updateRequestStatus, deleteRequest } = useApp()
 
   const [alertExpanded, setAlertExpanded] = useState(false)
-  const [selectedRequest, setSelectedRequest] = useState<Request | null>(null)
+  const [selectedRequestId, setSelectedRequestId] = useState<string | null>(null)
+  const [confirmDelete, setConfirmDelete] = useState<string | null>(null)
+
+  const selectedRequest = selectedRequestId ? requests.find(r => r.id === selectedRequestId) || null : null
 
   const recentRequests = [...requests]
     .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
@@ -106,13 +109,13 @@ export default function Dashboard() {
                   </p>
                   <div className="space-y-2">
                     {urgentRequests.map(req => {
-                      const project = mockProjects.find(p => p.id === req.projectId)
-                      const team = mockTeams.find(t => t.id === req.teamId)
+                      const project = projects.find(p => p.id === req.projectId)
+                      const team = teams.find(t => t.id === req.teamId)
                       const overdue = isOverdue(req.deadline) && req.status !== 'finalizado'
                       return (
                         <button
                           key={req.id}
-                          onClick={(e) => { e.stopPropagation(); setSelectedRequest(req) }}
+                          onClick={(e) => { e.stopPropagation(); setSelectedRequestId(req.id) }}
                           className="w-full text-left flex items-start gap-3 p-3 bg-red-500/10 hover:bg-red-500/20 border border-red-400/20 rounded-xl transition-colors cursor-pointer"
                         >
                           <div className="w-2 h-2 rounded-full bg-red-500 animate-pulse flex-shrink-0 mt-1.5" />
@@ -144,11 +147,11 @@ export default function Dashboard() {
                   </p>
                   <div className="space-y-2">
                     {pendingRequests.map(req => {
-                      const project = mockProjects.find(p => p.id === req.projectId)
+                      const project = projects.find(p => p.id === req.projectId)
                       return (
                         <button
                           key={req.id}
-                          onClick={(e) => { e.stopPropagation(); setSelectedRequest(req) }}
+                          onClick={(e) => { e.stopPropagation(); setSelectedRequestId(req.id) }}
                           className="w-full text-left flex items-center gap-3 p-3 bg-amber-500/10 hover:bg-amber-500/20 border border-amber-400/20 rounded-xl transition-colors cursor-pointer"
                         >
                           <div className="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0" />
@@ -275,8 +278,8 @@ export default function Dashboard() {
 
             <div className="space-y-2.5">
               {recentRequests.map(req => {
-                const project = mockProjects.find(p => p.id === req.projectId)
-                const team = mockTeams.find(t => t.id === req.teamId)
+                const project = projects.find(p => p.id === req.projectId)
+                const team = teams.find(t => t.id === req.teamId)
                 const stCfg = statusConfig[req.status]
                 const prCfg = priorityConfig[req.priority]
                 const overdue = isOverdue(req.deadline) && req.status !== 'finalizado'
@@ -284,7 +287,7 @@ export default function Dashboard() {
                 return (
                   <button
                     key={req.id}
-                    onClick={() => setSelectedRequest(req)}
+                    onClick={() => setSelectedRequestId(req.id)}
                     className="w-full text-left card-hover p-4 hover:ring-2 hover:ring-blue-500/30 active:scale-[0.99] transition-all"
                   >
                     {/* Top row */}
@@ -338,7 +341,7 @@ export default function Dashboard() {
             </div>
 
             <div className="space-y-3">
-              {mockProjects.filter(p => p.status === 'ativa').map(project => {
+              {projects.filter(p => p.status === 'ativa').map(project => {
                 const projectRequests = requests.filter(r => r.projectId === project.id)
                 const pending = projectRequests.filter(r => r.status !== 'finalizado').length
                 const done = projectRequests.filter(r => r.status === 'finalizado').length
@@ -378,15 +381,22 @@ export default function Dashboard() {
       {/* ============================================================ */}
       {selectedRequest && (() => {
         const req = selectedRequest
-        const project = mockProjects.find(p => p.id === req.projectId)
-        const team = mockTeams.find(t => t.id === req.teamId)
+        const project = projects.find(p => p.id === req.projectId)
+        const team = teams.find(t => t.id === req.teamId)
         const stCfg = statusConfig[req.status]
         const prCfg = priorityConfig[req.priority]
         const overdue = isOverdue(req.deadline) && req.status !== 'finalizado'
 
+        const statusFlow: { from: Status; to: Status; label: string; icon: typeof Eye; color: string; bg: string }[] = [
+          { from: 'pendente', to: 'em_analise', label: 'Iniciar Análise', icon: Eye, color: 'text-blue-600 dark:text-blue-400', bg: 'bg-blue-50 dark:bg-blue-500/10 hover:bg-blue-100 dark:hover:bg-blue-500/20' },
+          { from: 'em_analise', to: 'em_producao', label: 'Enviar p/ Produção', icon: Loader2, color: 'text-amber-600 dark:text-amber-400', bg: 'bg-amber-50 dark:bg-amber-500/10 hover:bg-amber-100 dark:hover:bg-amber-500/20' },
+          { from: 'em_producao', to: 'finalizado', label: 'Finalizar', icon: CheckCircle2, color: 'text-emerald-600 dark:text-emerald-400', bg: 'bg-emerald-50 dark:bg-emerald-500/10 hover:bg-emerald-100 dark:hover:bg-emerald-500/20' },
+        ]
+        const nextAction = statusFlow.find(s => s.from === req.status)
+
         return (
           <>
-            <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm" onClick={() => setSelectedRequest(null)} />
+            <div className="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm" onClick={() => setSelectedRequestId(null)} />
             <div className="fixed inset-y-0 right-0 z-50 w-full sm:w-[480px] bg-white dark:bg-dark-card shadow-2xl overflow-y-auto">
               {/* Header */}
               <div className="sticky top-0 z-10 bg-white/90 dark:bg-dark-card/90 backdrop-blur-md border-b border-gray-100 dark:border-dark-border px-4 sm:px-6 py-4">
@@ -400,7 +410,7 @@ export default function Dashboard() {
                       <p className="text-xs text-gray-500 dark:text-gray-400 font-mono">#{req.id.toUpperCase()}</p>
                     </div>
                   </div>
-                  <button onClick={() => setSelectedRequest(null)} className="p-2.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-surface rounded-xl transition-colors">
+                  <button onClick={() => setSelectedRequestId(null)} className="p-2.5 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-dark-surface rounded-xl transition-colors">
                     <X className="w-5 h-5" />
                   </button>
                 </div>
@@ -423,6 +433,13 @@ export default function Dashboard() {
                     </span>
                   )}
                 </div>
+
+                {/* Status action */}
+                {nextAction && (
+                  <button onClick={() => updateRequestStatus(req.id, nextAction.to)} className={`w-full flex items-center justify-center gap-2 px-4 py-3 text-sm font-semibold rounded-xl transition-colors ${nextAction.bg} ${nextAction.color}`}>
+                    <nextAction.icon className="w-4 h-4" /> {nextAction.label}
+                  </button>
+                )}
 
                 {/* Description */}
                 <div>
@@ -465,16 +482,33 @@ export default function Dashboard() {
                   </div>
                 )}
 
-                {/* Created date */}
-                <div className="p-3 bg-blue-50 dark:bg-blue-500/5 border border-blue-100 dark:border-blue-500/20 rounded-xl">
-                  <p className="text-[11px] font-semibold uppercase tracking-wider text-blue-400 dark:text-blue-500 mb-1">Registrado em</p>
-                  <p className="text-sm font-bold text-blue-800 dark:text-blue-400">{formatDate(req.createdAt)}</p>
+                {/* Delete */}
+                <div className="pt-3 border-t border-gray-100 dark:border-dark-border">
+                  <button onClick={() => setConfirmDelete(req.id)} className="w-full flex items-center justify-center gap-2 px-4 py-2.5 text-sm font-semibold text-red-600 dark:text-red-400 bg-red-50 dark:bg-red-500/10 rounded-xl hover:bg-red-100 dark:hover:bg-red-500/20 transition-colors"><Trash2 className="w-4 h-4" /> Excluir Solicitação</button>
                 </div>
               </div>
             </div>
           </>
         )
       })()}
+
+      {/* Delete Confirmation */}
+      {confirmDelete && (
+        <>
+          <div className="fixed inset-0 z-[60] bg-black/50 backdrop-blur-sm" onClick={() => setConfirmDelete(null)} />
+          <div className="fixed inset-0 z-[60] flex items-center justify-center p-4">
+            <div className="bg-white dark:bg-dark-card rounded-2xl shadow-2xl w-full max-w-sm p-6 border border-gray-100 dark:border-dark-border" onClick={e => e.stopPropagation()}>
+              <div className="w-12 h-12 bg-red-50 dark:bg-red-500/10 rounded-xl flex items-center justify-center mx-auto mb-4"><Trash2 className="w-6 h-6 text-red-500" /></div>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white text-center mb-2">Excluir Solicitação?</h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400 text-center mb-6">Esta ação não pode ser desfeita.</p>
+              <div className="flex gap-3">
+                <button onClick={() => setConfirmDelete(null)} className="btn-secondary flex-1 justify-center">Cancelar</button>
+                <button onClick={() => { deleteRequest(confirmDelete); setConfirmDelete(null); setSelectedRequestId(null) }} className="flex-1 px-4 py-2.5 bg-red-500 text-white text-sm font-semibold rounded-xl hover:bg-red-600 transition-colors">Excluir</button>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </>
   )
 }
